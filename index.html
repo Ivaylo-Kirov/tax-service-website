@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Doris Kirov Tax — Tax Returns That Handle Your Peace of Mind</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,23 +13,28 @@
         }
 
         :root {
-            --bg-primary: #0a0a0a;
-            --bg-secondary: #111111;
-            --bg-card: #1a1a1a;
-            --text-primary: #ffffff;
-            --text-secondary: #a0a0a0;
-            --accent: #22c55e;
-            --accent-light: #4ade80;
-            --border: #2a2a2a;
+            --bg-primary: #faf8f5;
+            --bg-secondary: #ffffff;
+            --bg-card: #ffffff;
+            --text-primary: #2c2c2c;
+            --text-secondary: #6b6b6b;
+            --accent: #87a878;
+            --accent-light: #6b8a5e;
+            --border: #e0e0e0;
             --urgent: #ef4444;
+            --light-sage: #e8f0e3;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--bg-primary);
             color: var(--text-primary);
             line-height: 1.6;
             overflow-x: hidden;
+        }
+
+        h1, h2, h3, .logo {
+            font-family: 'Playfair Display', serif;
         }
 
         /* Background Grid Pattern */
@@ -40,8 +46,8 @@
             right: 0;
             bottom: 0;
             background-image: 
-                linear-gradient(rgba(34, 197, 94, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(34, 197, 94, 0.03) 1px, transparent 1px);
+                linear-gradient(rgba(135, 168, 120, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(135, 168, 120, 0.05) 1px, transparent 1px);
             background-size: 60px 60px;
             pointer-events: none;
             z-index: -2;
@@ -60,7 +66,7 @@
         .orb-1 {
             width: 600px;
             height: 600px;
-            background: linear-gradient(135deg, rgba(34, 197, 94, 0.6), rgba(74, 222, 128, 0.3));
+            background: linear-gradient(135deg, rgba(135, 168, 120, 0.4), rgba(168, 198, 160, 0.2));
             top: -200px;
             right: -100px;
             animation: float-orb 20s ease-in-out infinite;
@@ -69,7 +75,7 @@
         .orb-2 {
             width: 500px;
             height: 500px;
-            background: linear-gradient(135deg, rgba(34, 211, 238, 0.5), rgba(34, 197, 94, 0.3));
+            background: linear-gradient(135deg, rgba(212, 228, 205, 0.5), rgba(135, 168, 120, 0.3));
             bottom: 20%;
             left: -150px;
             animation: float-orb 25s ease-in-out infinite reverse;
@@ -78,7 +84,7 @@
         .orb-3 {
             width: 400px;
             height: 400px;
-            background: linear-gradient(135deg, rgba(168, 85, 247, 0.4), rgba(34, 197, 94, 0.2));
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(135, 168, 120, 0.15));
             top: 50%;
             right: 10%;
             animation: float-orb 18s ease-in-out infinite;
