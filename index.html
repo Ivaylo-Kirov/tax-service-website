@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax Preparation & Accounting | Toronto | Doris Kirov</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header */
+        header {
+            background: #fff;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #2c5530;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #2c5530;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #2c5530 0%, #4a7c59 100%);
+            color: white;
+            padding: 9rem 0 5rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .urgent-banner {
+            background: #e74c3c;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            font-weight: bold;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #fff;
+            color: #2c5530;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Sections */
+        section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 2.5rem;
+            color: #2c5530;
+        }
+
+        /* Services */
+        .services {
+            background: #f8f9fa;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+
+        .service-card h3 {
+            color: #2c5530;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Pricing */
+        .pricing-simple {
+            background: #f8f9fa;
+        }
+
+        .pricing-table {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .pricing-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .pricing-row:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-row.header {
+            background: #2c5530;
+            color: white;
+            font-weight: bold;
+        }
+
+        .price-tag {
+            font-weight: bold;
+            color: #2c5530;
+        }
+
+        /* About */
+        .about-section {
+            text-align: center;
+        }
+
+        .about-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Why Choose */
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .why-item {
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        .why-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Contact */
+        .contact-section {
+            background: #f8f9fa;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .contact-info-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+
+        .contact-info-box h3 {
+            color: #2c5530;
+            margin-bottom: 1rem;
+        }
+
+        .contact-item {
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .contact-item:last-child {
+            border-bottom: none;
+        }
+
+        .contact-form-simple {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.3rem;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.7rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: #2c5530;
+            color: white;
+            padding: 0.9rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background: #1e3a20;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c5530;
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">🧾 Doris Kirov | Tax & Accounting</div>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="urgent-banner">⚠️ Tax Deadline: April 30, 2026</div>
+            <h1>Stress-Free Tax Preparation</h1>
+            <p>Professional tax services for individuals and small businesses in Toronto.<br>Personal service. Fair prices. Maximum refunds.</p>
+            <a href="#contact" class="cta-button">Book Your Appointment</a>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">What We Do</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>📄 Personal Tax Returns</h3>
+                    <p>T4 employees, students, retirees. Simple to complex returns. We find every deduction you're entitled to.</p>
+                </div>
+                <div class="service-card">
+                    <h3>🚗 Self-Employed & Gig Workers</h3>
+                    <p>Uber, DoorDash, freelancers, consultants. We know what you can deduct and how to track it.</p>
+                </div>
+                <div class="service-card">
+                    <h3>🏠 Rental Property Owners</h3>
+                    <p>Maximize rental deductions. Depreciation, expenses, and capital gains planning.</p>
+                </div>
+                <div class="service-card">
+                    <h3>🏢 Small Business Accounting</h3>
+                    <p>Bookkeeping, HST/GST filing, T2 corporate returns, payroll setup.</p>
+                </div>
+                <div class="service-card">
+                    <h3>🆕 Newcomers to Canada</h3>
+                    <p>First year in Canada? We'll help you understand Canadian taxes and claim newcomer benefits.</p>
+                </div>
+                <div class="service-card">
+                    <h3>📋 Prior Year Adjustments</h3>
+                    <p>Missed deductions in previous years? We can amend returns going back 10 years.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="pricing-simple">
+        <div class="container">
+            <h2 class="section-title">Transparent Pricing</h2>
+            <p style="text-align: center; margin-bottom: 2rem;">No hidden fees. No hourly surprises. Price quoted upfront.</p>
+            
+            <div class="pricing-table">
+                <div class="pricing-row header">
+                    <span>Service</span>
+                    <span>Starting At</span>
+                </div>
+                <div class="pricing-row">
+                    <span>Simple T4 Return</span>
+                    <span class="price-tag">$75</span>
+                </div>
+                <div class="pricing-row">
+                    <span>T4 + Deductions (RRSP, Donations, Medical)</span>
+                    <span class="price-tag">$150</span>
+                </div>
+                <div class="pricing-row">
+                    <span>Self-Employed (T2125)</span>
+                    <span class="price-tag">$300</span>
+                </div>
+                <div class="pricing-row">
+                    <span>Rental Property Add-on</span>
+                    <span class="price-tag">$100</span>
+                </div>
+                <div class="pricing-row">
+                    <span>Small Business T2 Return</span>
+                    <span class="price-tag">$800</span>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 1.5rem; font-size: 0.9rem; color: #666;">*Final price depends on complexity. Free quote provided before any work begins.</p>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title">Why Work With Me?</h2>
+            <div class="about-content">
+                <p>I'm Doris, a Toronto-based accountant with a passion for helping people navigate taxes without the stress. I believe everyone deserves to understand their taxes and keep more of their hard-earned money.</p>
+                <br>
+                
+                <div class="why-grid">
+                    <div class="why-item">
+                        <div class="why-icon">💬</div>
+                        <h4>Plain English</h4>
+                        <p>No accounting jargon. I explain everything clearly.</p>
+                    </div>
+                    <div class="why-item">
+                        <div class="why-icon">🔍</div>
+                        <h4>Thorough Review</h4>
+                        <p>I check for every possible deduction and credit.</p>
+                    </div>
+                    <div class="why-item">
+                        <div class="why-icon">⏰</div>
+                        <h4>On Time</h4>
+                        <p>Filed before deadlines. No last-minute stress.</p>
+                    </div>
+                    <div class="why-item">
+                        <div class="why-icon">📞</div>
+                        <h4>Available</h4>
+                        <p>Questions after filing? I'm here to help.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Book an Appointment</h2>
+            
+            <div class="contact-grid">
+                <div class="contact-info-box">
+                    <h3>Contact Information</h3>
+                    
+                    <div class="contact-item">
+                        <strong>📧 Email</strong><br>
+                        doris@kirovtax.ca
+                    </div>
+                    
+                    <div class="contact-item">
+                        <strong>📱 Phone/Text</strong><br>
+                        (416) XXX-XXXX
+                    </div>
+                    
+                    <div class="contact-item">
+                        <strong>📍 Location</strong><br>
+                        Toronto, ON<br>
+                        <small>Virtual appointments available</small>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <strong>⏰ Hours</strong><br>
+                        Mon-Fri: 9am - 7pm<br>
+                        Sat: 10am - 4pm<br>
+                        Sun: By appointment
+                    </div>
+                </div>
+
+                <form class="contact-form-simple" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                    <div class="form-group">
+                        <label>Your Name</label>
+                        <input type="text" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Phone</label>
+                        <input type="tel" name="phone">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Service Needed</label>
+                        <select name="service">
+                            <option>Personal Tax Return</option>
+                            <option>Self-Employed / Gig Work</option>
+                            <option>Rental Property</option>
+                            <option>Small Business</option>
+                            <option>Prior Year Adjustment</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea name="message" placeholder="Tell me about your tax situation..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Request Appointment</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Doris Kirov | Tax & Accounting Services | Toronto, ON</p>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

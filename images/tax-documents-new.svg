@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 280">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f291e"/>
+      <stop offset="100%" style="stop-color:#1a3d2e"/>
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#22c55e"/>
+      <stop offset="100%" style="stop-color:#4ade80"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b"/>
+      <stop offset="100%" style="stop-color:#fbbf24"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="280" fill="url(#bgGrad)"/>
+  
+  <!-- Main Document Stack -->
+  <rect x="80" y="40" width="240" height="180" rx="8" fill="#1e3d2e" stroke="#22c55e" stroke-width="2" transform="rotate(-3 200 130)"/>
+  
+  <!-- T4 Slip Header -->
+  <rect x="95" y="55" width="210" height="35" rx="4" fill="#0f291e" transform="rotate(-3 200 130)"/>
+  <text x="130" y="80" font-family="Arial" font-size="16" fill="#22c55e" font-weight="bold" transform="rotate(-3 200 130)">T4 SLIP 2025</text>
+  
+  <!-- Form Fields -->
+  <rect x="95" y="100" width="100" height="8" rx="2" fill="#22c55e" opacity="0.3" transform="rotate(-3 200 130)"/>
+  <rect x="95" y="115" width="140" height="6" rx="2" fill="#4ade80" opacity="0.2" transform="rotate(-3 200 130)"/>
+  <rect x="95" y="128" width="120" height="6" rx="2" fill="#4ade80" opacity="0.2" transform="rotate(-3 200 130)"/>
+  
+  <rect x="210" y="100" width="80" height="40" rx="4" fill="url(#goldGrad)" opacity="0.9" transform="rotate(-3 200 130)"/>
+  <text x="250" y="128" font-family="Arial" font-size="18" fill="#0f291e" font-weight="bold" text-anchor="middle" transform="rotate(-3 200 130)">$72,500</text>
+  
+  <!-- Box 14 -->
+  <rect x="95" y="145" width="90" height="55" rx="4" fill="#0f291e" stroke="#22c55e" stroke-width="1" transform="rotate(-3 200 130)"/>
+  <text x="108" y="165" font-family="Arial" font-size="8" fill="#4ade80" transform="rotate(-3 200 130)">BOX 14</text>
+  <text x="140" y="190" font-family="monospace" font-size="16" fill="#22c55e" font-weight="bold" text-anchor="middle" transform="rotate(-3 200 130)">72500.00</text>
+  
+  <!-- Box 16 -->
+  <rect x="195" y="145" width="90" height="55" rx="4" fill="#0f291e" stroke="#22c55e" stroke-width="1" transform="rotate(-3 200 130)"/>
+  <text x="208" y="165" font-family="Arial" font-size="8" fill="#4ade80" transform="rotate(-3 200 130)">BOX 16</text>
+  <text x="240" y="190" font-family="monospace" font-size="16" fill="#22c55e" font-weight="bold" text-anchor="middle" transform="rotate(-3 200 130)">14500.00</text>
+  
+  <!-- Shadow Documents -->
+  <rect x="100" y="200" width="220" height="160" rx="8" fill="#1a3d2e" opacity="0.5" transform="rotate(-6 210 280)"/>
+  <rect x="120" y="180" width="220" height="160" rx="8" fill="#1e3d2e" opacity="0.3" transform="rotate(2 230 260)"/>
+  
+  <!-- Checkmark Badge -->
+  <circle cx="340" cy="220" r="30" fill="url(#accentGrad)"/>
+  <path d="M325 220 L335 230 L355 210" stroke="#0f291e" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Dollar Sign Decoration -->
+  <text x="50" y="120" font-family="Arial" font-size="60" fill="#22c55e" opacity="0.1" font-weight="bold">$</text>
+  <text x="330" y="80" font-family="Arial" font-size="45" fill="#22c55e" opacity="0.1" font-weight="bold">$</text>
+  
+  <!-- Small decorative elements -->
+  <circle cx="60" cy="200" r="4" fill="#22c55e" opacity="0.4"/>
+  <circle cx="75" cy="215" r="3" fill="#4ade80" opacity="0.3"/>
+  <circle cx="45" cy="220" r="2" fill="#fbbf24" opacity="0.3"/>
+</svg>

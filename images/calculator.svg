@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f291e"/>
+      <stop offset="100%" style="stop-color:#1a3d2e"/>
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#22c55e"/>
+      <stop offset="100%" style="stop-color:#4ade80"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b"/>
+      <stop offset="100%" style="stop-color:#fbbf24"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="300" fill="url(#bgGrad)"/>
+  
+  <!-- Calculator Body -->
+  <rect x="100" y="40" width="200" height="220" rx="20" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+  
+  <!-- Calculator Screen -->
+  <rect x="120" y="60" width="160" height="50" rx="8" fill="#0f172a"/>
+  <text x="265" y="95" font-family="monospace" font-size="24" fill="#22c55e" text-anchor="end" font-weight="bold">$2,847</text>
+  <text x="265" y="78" font-family="monospace" font-size="10" fill="#64748b" text-anchor="end">TAX RETURN</text>
+  
+  <!-- Calculator Buttons -->
+  <!-- Row 1 -->
+  <rect x="120" y="125" width="32" height="28" rx="6" fill="#334155"/>
+  <text x="136" y="144" font-family="Arial" font-size="12" fill="#94a3b8" text-anchor="middle">7</text>
+  
+  <rect x="160" y="125" width="32" height="28" rx="6" fill="#334155"/>
+  <text x="176" y="144" font-family="Arial" font-size="12" fill="#94a3b8" text-anchor="middle">8</text>
+  
+  <rect x="200" y="125" width="32" height="28" rx="6" fill="#334155"/>
+  <text x="216" y="144" font-family="Arial" font-size="12" fill="#94a3b8" text-anchor="middle">9</text>
+  
+  <rect x="240" y="125" width="40" height="28" rx="6" fill="url(#goldGrad)"/>
+  <text x="260" y="144" font-family="Arial" font-size="14" fill="#1e293b" text-anchor="middle" font-weight="bold">÷</text>
+  
+  <!-- Row 2 -->
+  <rect x="120" y="162" width="32" height="28" rx="6" fill="#334155"/>
+  <text x="136" y="181" font-family="Arial" font-size="12" fill="#94a3b8" text-anchor="middle">4</text>
+  
+  <rect x="160" y="162" width="32" height="28" rx="6" fill="#334155"/>
+  <text x="176" y="181" font-family="Arial" font-size="12" fill="#94a3b8" text-anchor="middle">5</text>
+  
+  <rect x="200" y="162" width="32" height="28" rx="6" fill="#334155"/>
+  <text x="216" y="181" font-family="Arial" font-size="12" fill="#94a3b8" text-anchor="middle">6</text>
+  
+  <rect x="240" y="162" width="40" height="28" rx="6" fill="url(#goldGrad)"/>
+  <text x="260" y="181" font-family="Arial" font-size="14" fill="#1e293b" text-anchor="middle" font-weight="bold">×</text>
+  
+  <!-- Row 3 -->
+  <rect x="120" y="199" width="32" height="28" rx="6" fill="#334155"/>
+  <text x="136" y="218" font-family="Arial" font-size="12" fill="#94a3b8" text-anchor="middle">1</text>
+  
+  <rect x="160" y="199" width="32" height="28" rx="6" fill="#334155"/>
+  <text x="176" y="218" font-family="Arial" font-size="12" fill="#94a3b8" text-anchor="middle">2</text>
+  
+  <rect x="200" y="199" width="32" height="28" rx="6" fill="#334155"/>
+  <text x="216" y="218" font-family="Arial" font-size="12" fill="#94a3b8" text-anchor="middle">3</text>
+  
+  <rect x="240" y="199" width="40" height="28" rx="6" fill="url(#goldGrad)"/>
+  <text x="260" y="218" font-family="Arial" font-size="14" fill="#1e293b" text-anchor="middle" font-weight="bold">-</text>
+  
+  <!-- Row 4 -->
+  <rect x="120" y="236" width="72" height="28" rx="6" fill="#334155"/>
+  <text x="156" y="255" font-family="Arial" font-size="12" fill="#94a3b8" text-anchor="middle">0</text>
+  
+  <rect x="200" y="236" width="32" height="28" rx="6" fill="url(#accentGrad)"/>
+  <text x="216" y="255" font-family="Arial" font-size="14" fill="#0f291e" text-anchor="middle" font-weight="bold">=</text>
+  
+  <rect x="240" y="236" width="40" height="28" rx="6" fill="url(#goldGrad)"/>
+  <text x="260" y="255" font-family="Arial" font-size="14" fill="#1e293b" text-anchor="middle" font-weight="bold">+</text>
+  
+  <!-- Document/Paper elements in background -->
+  <rect x="20" y="80" width="60" height="80" rx="4" fill="#1e3d2e" opacity="0.6" transform="rotate(-15 50 120)"/>
+  <rect x="25" y="85" width="50" height="4" rx="2" fill="#22c55e" opacity="0.4" transform="rotate(-15 50 120)"/>
+  <rect x="25" y="95" width="40" height="3" rx="1.5" fill="#4ade80" opacity="0.3" transform="rotate(-15 50 120)"/>
+  <rect x="25" y="105" width="45" height="3" rx="1.5" fill="#4ade80" opacity="0.3" transform="rotate(-15 50 120)"/>
+  <text x="35" y="145" font-family="Arial" font-size="8" fill="#22c55e" opacity="0.5" transform="rotate(-15 50 120)">T4</text>
+  
+  <rect x="320" y="60" width="70" height="90" rx="4" fill="#1e3d2e" opacity="0.6" transform="rotate(10 355 105)"/>
+  <rect x="328" y="68" width="54" height="4" rx="2" fill="#22c55e" opacity="0.4" transform="rotate(10 355 105)"/>
+  <rect x="328" y="78" width="40" height="3" rx="1.5" fill="#4ade80" opacity="0.3" transform="rotate(10 355 105)"/>
+  <rect x="328" y="88" width="48" height="3" rx="1.5" fill="#4ade80" opacity="0.3" transform="rotate(10 355 105)"/>
+  <rect x="328" y="98" width="35" height="3" rx="1.5" fill="#4ade80" opacity="0.3" transform="rotate(10 355 105)"/>
+  <text x="345" y="135" font-family="Arial" font-size="8" fill="#22c55e" opacity="0.5" transform="rotate(10 355 105)">T1</text>
+  
+  <!-- Dollar sign decorations -->
+  <text x="55" y="220" font-family="Arial" font-size="40" fill="#22c55e" opacity="0.15" font-weight="bold">$</text>
+  <text x="340" y="200" font-family="Arial" font-size="35" fill="#22c55e" opacity="0.15" font-weight="bold">$</text>
+  
+  <!-- Checkmark badge -->
+  <circle cx="330" cy="200" r="20" fill="url(#accentGrad)"/>
+  <path d="M320 200 L327 207 L340 194" stroke="#0f291e" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
