@@ -25,6 +25,10 @@
             --light-sage: #e8f0e3;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--bg-primary);
@@ -53,68 +57,141 @@
             z-index: -2;
         }
 
-        /* Floating Gradient Orbs */
+        /* Background Gradient Orbs - FIXED position so they don't extend page */
         .orb {
             position: fixed;
             border-radius: 50%;
-            filter: blur(80px);
             opacity: 0.4;
+            filter: blur(60px);
             pointer-events: none;
             z-index: -1;
+            will-change: transform;
         }
 
         .orb-1 {
-            width: 600px;
-            height: 600px;
-            background: linear-gradient(135deg, rgba(135, 168, 120, 0.4), rgba(168, 198, 160, 0.2));
-            top: -200px;
-            right: -100px;
-            animation: float-orb 20s ease-in-out infinite;
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(135deg, rgba(135, 168, 120, 0.6), rgba(168, 198, 160, 0.3));
+            top: 5%;
+            right: 5%;
         }
 
         .orb-2 {
-            width: 500px;
-            height: 500px;
-            background: linear-gradient(135deg, rgba(212, 228, 205, 0.5), rgba(135, 168, 120, 0.3));
-            bottom: 20%;
-            left: -150px;
-            animation: float-orb 25s ease-in-out infinite reverse;
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, rgba(107, 138, 94, 0.5), rgba(135, 168, 120, 0.4));
+            top: 40%;
+            left: -5%;
         }
 
         .orb-3 {
-            width: 400px;
-            height: 400px;
-            background: linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(135, 168, 120, 0.15));
-            top: 50%;
+            width: 350px;
+            height: 350px;
+            background: linear-gradient(135deg, rgba(168, 198, 160, 0.5), rgba(135, 168, 120, 0.3));
+            top: 75%;
             right: 10%;
-            animation: float-orb 18s ease-in-out infinite;
-            animation-delay: -5s;
         }
 
-        @keyframes float-orb {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            25% { transform: translate(30px, -30px) scale(1.05); }
-            50% { transform: translate(-20px, 20px) scale(0.95); }
-            75% { transform: translate(20px, 10px) scale(1.02); }
+        /* Parallax Hero Elements */
+        .hero-parallax-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            overflow: hidden;
+            z-index: -1;
         }
 
-        /* Scroll Animation Base */
+        .parallax-element {
+            position: absolute;
+            will-change: transform;
+        }
+
+        .floating-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            padding: 1.5rem;
+            position: absolute;
+            will-change: transform;
+        }
+
+        /* EDEN Animation System - Scroll-Triggered Content Reveals */
         .animate-on-scroll {
             opacity: 0;
             transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+                        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
-
-        .animate-on-scroll.visible {
+        .animate-on-scroll.is-visible {
             opacity: 1;
             transform: translateY(0);
         }
+        
+        /* Animation Variants */
+        .fade-up { transform: translateY(30px); }
+        .fade-up.is-visible { transform: translateY(0); }
+        
+        .fade-left { transform: translateX(-30px); }
+        .fade-left.is-visible { transform: translateX(0); }
+        
+        .fade-right { transform: translateX(30px); }
+        .fade-right.is-visible { transform: translateX(0); }
+        
+        .fade-scale { transform: scale(0.95); }
+        .fade-scale.is-visible { transform: scale(1); }
+        
+        /* Stagger delays */
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; }
+        .stagger-4 { transition-delay: 0.4s; }
+        .stagger-5 { transition-delay: 0.5s; }
+        .stagger-6 { transition-delay: 0.6s; }
+        
+        .hover-lift {
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-5px);
+        }
+        
+        /* Navigation Scroll Transformation */
+        nav {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        nav.scrolled {
+            background: rgba(10, 31, 18, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(135, 168, 120, 0.1);
+            padding: 1rem 2rem;
+        }
 
-        .animate-on-scroll.delay-1 { transition-delay: 0.1s; }
-        .animate-on-scroll.delay-2 { transition-delay: 0.2s; }
-        .animate-on-scroll.delay-3 { transition-delay: 0.3s; }
+        /* Service card hover effects */
+        .service-card-hover {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .service-card-hover:hover {
+            border-color: var(--accent);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(135, 168, 120, 0.2);
+        }
+        .service-card-hover:hover .service-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
 
-        /* Navigation */
+        /* Testimonial card hover */
+        .testimonial-card-hover {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .testimonial-card-hover:hover {
+            border-color: var(--accent);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(135, 168, 120, 0.15);
+        }
+
+        /* Navigation - EDEN Style */
         nav {
             position: fixed;
             top: 0;
@@ -124,9 +201,16 @@
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            background: #0a1f12;
+            background: transparent;
+            border-bottom: 1px solid transparent;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        nav.scrolled {
+            padding: 1rem 2rem;
+            background: rgba(10, 31, 18, 0.85);
             backdrop-filter: blur(20px);
-            border-bottom: 1px solid #1a3d24;
+            border-bottom: 1px solid rgba(135, 168, 120, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
 
         .logo {
@@ -602,7 +686,6 @@
             border: 1px solid var(--border);
             border-radius: 16px;
             padding: 2rem;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
         }
@@ -619,18 +702,8 @@
             transition: transform 0.6s ease;
         }
 
-        .service-card:hover {
-            border-color: var(--accent);
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(34, 197, 94, 0.2);
-        }
-
         .service-card:hover::before {
             transform: translateX(100%);
-        }
-
-        .service-card:hover .service-icon {
-            transform: scale(1.1) rotate(5deg);
         }
 
         .service-icon {
@@ -644,6 +717,17 @@
             font-size: 1.5rem;
             margin-bottom: 1.5rem;
             transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .service-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .service-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
         }
 
         /* Stats Section */
@@ -687,17 +771,6 @@
         .stat-label {
             color: var(--text-secondary);
             font-size: 0.95rem;
-        }
-
-        .service-card h3 {
-            font-size: 1.25rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .service-card p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.7;
         }
 
         /* Pricing Simple */
@@ -1036,7 +1109,14 @@
             margin-bottom: 1rem;
         }
 
-        /* Mobile */
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        /* Mobile responsive animations */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -1049,14 +1129,22 @@
             .services-grid {
                 grid-template-columns: 1fr;
             }
+
+            /* Reduce motion on mobile */
+            @media (prefers-reduced-motion: reduce) {
+                .animate-on-scroll {
+                    opacity: 1;
+                    transform: none;
+                }
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Floating Gradient Orbs -->
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-    <div class="orb orb-3"></div>
+    <!-- Parallax Background Elements -->
+    <div class="parallax-bg orb orb-1"></div>
+    <div class="parallax-bg orb orb-2"></div>
+    <div class="parallax-bg orb orb-3"></div>
 
     <nav>
         <div class="logo">
@@ -1073,7 +1161,7 @@
     </nav>
 
     <section class="hero">
-        <div class="hero-content">
+        <div class="hero-content animate-on-scroll fade-up">
             <div class="urgent-banner">
                 Tax Deadline: April 30, 2026 — Book Early!
             </div>
@@ -1087,7 +1175,7 @@
             </div>
         </div>
         
-        <div class="hero-visual">
+        <div class="hero-visual animate-on-scroll fade-left stagger-2">
             <div class="hero-image-stack">
                 <div class="hero-img hero-img-1">
                     <img src="images/tax-documents-new.svg" alt="Maximum Refund" onerror="this.style.display='none'">
@@ -1105,64 +1193,64 @@
     <!-- Stats Section -->
     <section class="stats-section">
         <div class="stats-grid">
-            <div class="stat-item animate-on-scroll">
+            <div class="stat-item animate-on-scroll fade-up">
                 <div class="stat-number" data-target="500">0</div>
                 <div class="stat-label">Returns Filed</div>
             </div>
-            <div class="stat-item animate-on-scroll delay-1">
+            <div class="stat-item animate-on-scroll fade-up stagger-1">
                 <div class="stat-number" data-target="15">0</div>
                 <div class="stat-label">Years Experience</div>
             </div>
-            <div class="stat-item animate-on-scroll delay-2">
+            <div class="stat-item animate-on-scroll fade-up stagger-2">
                 <div class="stat-number" data-target="100">0</div>
                 <div class="stat-label">% Accuracy</div>
             </div>
-            <div class="stat-item animate-on-scroll delay-3">
+            <div class="stat-item animate-on-scroll fade-up stagger-3">
                 <div class="stat-number" data-target="5">0</div>
                 <div class="stat-label">Star Rating</div>
             </div>
         </div>
     </section>
 
-    <section id="services" class="animate-on-scroll">
-        <div class="section-header">
+    <section id="services">
+        <div class="section-header animate-on-scroll fade-up">
             <div class="section-label">Services</div>
             <h2 class="section-title">Everything Tax-Related, Handled</h2>
             <p class="section-subtitle">From simple T4s to complex business returns. I've got you covered.</p>
         </div>
 
         <div class="services-grid">
-            <div class="service-card animate-on-scroll">
+            <div class="service-card animate-on-scroll fade-up service-card-hover">
                 <div class="service-icon">📄</div>
                 <h3>Personal Tax Returns</h3>
                 <p>T4 employees, students, retirees. Simple to complex returns. I find every deduction you're entitled to claim.</p>
             </div>
 
-            <div class="service-card animate-on-scroll delay-1">
+            <div class="service-card animate-on-scroll fade-up stagger-1 service-card-hover">
                 <div class="service-icon">🚗</div>
                 <h3>Self-Employed & Gig Workers</h3>
                 <p>Uber, DoorDash, freelancers, consultants. I know exactly what you can deduct and how to track it properly.</p>
             </div>
 
-            <div class="service-card animate-on-scroll delay-2">
+            <div class="service-card animate-on-scroll fade-up stagger-2 service-card-hover">
                 <div class="service-icon">🏠</div>
                 <h3>Rental Property Owners</h3>
                 <p>Maximize rental deductions, depreciation, expenses, and capital gains planning. Keep more of your rental income.</p>
             </div>
 
-            <div class="service-card animate-on-scroll">
+            <div class="service-card animate-on-scroll fade-up service-card-hover">
                 <div class="service-icon">🏢</div>
                 <h3>Small Business Accounting</h3>
                 <p>Bookkeeping, HST/GST filing, T2 corporate returns, payroll setup. Full-service accounting for growing businesses.</p>
             </div>
 
-            <div class="service-card animate-on-scroll delay-1">
+            <div class="service-card animate-on-scroll fade-up stagger-1 service-card-hover">
                 <div class="service-icon">🆕</div>
                 <h3>Newcomers to Canada</h3>
                 <p>First year in Canada? I'll help you understand Canadian taxes and claim all the newcomer benefits available to you.</p>
             </div>
 
-            <div class="service-card animate-on-scroll delay-2">
+            <div class="service-card animate-on-scroll fade-up stagger-2 service-card-hover">
                 <div class="service-icon">📋</div>
                 <h3>Prior Year Adjustments</h3>
                 <p>Missed deductions in previous years? I can amend returns going back 10 years to get you money you left on the table.</p>
@@ -1170,35 +1258,35 @@
         </div>
     </section>
 
-    <section id="pricing" class="pricing-section animate-on-scroll">
-        <div class="section-header">
+    <section id="pricing" class="pricing-section">
+        <div class="section-header animate-on-scroll fade-up">
             <div class="section-label">Pricing</div>
             <h2 class="section-title">Transparent, Flat-Rate Pricing</h2>
             <p class="section-subtitle">No hidden fees. No hourly surprises. Price quoted upfront before any work begins.</p>
         </div>
 
-        <div class="pricing-table">
+        <div class="pricing-table animate-on-scroll fade-scale">
             <div class="pricing-row header">
                 <span>Service</span>
                 <span>Starting At</span>
             </div>
-            <div class="pricing-row">
+            <div class="pricing-row hover-lift">
                 <span class="service-name">Simple T4 Return</span>
                 <span class="service-price">$75</span>
             </div>
-            <div class="pricing-row">
+            <div class="pricing-row hover-lift">
                 <span class="service-name">T4 + Deductions (RRSP, Donations, Medical)</span>
                 <span class="service-price">$150</span>
             </div>
-            <div class="pricing-row">
+            <div class="pricing-row hover-lift">
                 <span class="service-name">Self-Employed (T2125)</span>
                 <span class="service-price">$300</span>
             </div>
-            <div class="pricing-row">
+            <div class="pricing-row hover-lift">
                 <span class="service-name">Rental Property Add-on</span>
                 <span class="service-price">$100</span>
             </div>
-            <div class="pricing-row">
+            <div class="pricing-row hover-lift">
                 <span class="service-name">Small Business T2 Return</span>
                 <span class="service-price">$800</span>
             </div>
@@ -1210,9 +1298,8 @@
     <!-- About Section -->
     <section class="about-section">
         <div class="about-content">
-            <div class="about-image-wrapper animate-on-scroll">
+            <div class="about-image-wrapper animate-on-scroll fade-right">
                 <div class="about-image">
-                    <!-- TODO: Replace with Doris' real photo -->
                     <img src="images/doris-photo.jpg" alt="Doris Kirov - Tax Professional" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="photo-placeholder" style="display: none;">
                         <div class="placeholder-content">
@@ -1225,7 +1312,7 @@
                     <span>📸</span> Your photo will go here
                 </div>
             </div>
-            <div class="about-text animate-on-scroll delay-1">
+            <div class="about-text animate-on-scroll fade-left stagger-1">
                 <h2>Meet Doris</h2>
                 <p>With <strong>years of experience</strong> helping Toronto individuals and small businesses, I understand that taxes can be overwhelming. That's why I'm committed to making the process <strong>simple, transparent, and stress-free</strong>.</p>
                 <p>From <strong>simple T4 returns</strong> to <strong>complex business accounting</strong>, I handle every return with the same attention to detail. My clients appreciate my <strong>plain-English explanations</strong> and the peace of mind that comes from knowing their taxes are done right.</p>
@@ -1235,18 +1322,18 @@
     </section>
 
     <section id="about">
-        <div class="section-header">
+        <div class="section-header animate-on-scroll fade-up">
             <div class="section-label">Why Work With Me</div>
             <h2 class="section-title">Tax Help Without the Headache</h2>
             <p class="section-subtitle">I'm Doris, a Toronto-based accountant who believes everyone deserves to understand their taxes and keep more of their hard-earned money.</p>
         </div>
 
-        <div style="max-width: 800px; margin: 0 auto 3rem; border-radius: 16px; overflow: hidden; box-shadow: 0 20px 40px rgba(34, 197, 94, 0.15);" class="animate-on-scroll">
+        <div style="max-width: 800px; margin: 0 auto 3rem; border-radius: 16px; overflow: hidden; box-shadow: 0 20px 40px rgba(34, 197, 94, 0.15);" class="animate-on-scroll fade-scale">
             <img src="images/documents.jpg" alt="Tax Documents and Planning" style="width: 100%; height: auto; display: block;">
         </div>
 
         <div class="features-list">
-            <div class="feature-item animate-on-scroll">
+            <div class="feature-item animate-on-scroll fade-up">
                 <div class="feature-check">✓</div>
                 <div class="feature-content">
                     <h3>Plain English Explanations</h3>
@@ -1254,7 +1341,7 @@
                 </div>
             </div>
 
-            <div class="feature-item animate-on-scroll delay-1">
+            <div class="feature-item animate-on-scroll fade-up stagger-1">
                 <div class="feature-check">✓</div>
                 <div class="feature-content">
                     <h3>Thorough Deduction Review</h3>
@@ -1262,7 +1349,7 @@
                 </div>
             </div>
 
-            <div class="feature-item animate-on-scroll delay-2">
+            <div class="feature-item animate-on-scroll fade-up stagger-2">
                 <div class="feature-check">✓</div>
                 <div class="feature-content">
                     <h3>Always On Time</h3>
@@ -1270,7 +1357,7 @@
                 </div>
             </div>
 
-            <div class="feature-item animate-on-scroll delay-3">
+            <div class="feature-item animate-on-scroll fade-up stagger-3">
                 <div class="feature-check">✓</div>
                 <div class="feature-content">
                     <h3>Available After Filing</h3>
@@ -1279,9 +1366,7 @@
             </div>
         </div>
 
-        <div class="deadline-box animate-on-scroll">
-
-        <div class="deadline-box">
+        <div class="deadline-box animate-on-scroll fade-up">
             <h3>⚠️ Important Tax Deadlines</h3>
             <p>Don't wait until the last minute. Book your appointment early to avoid the rush.</p>
             
@@ -1304,14 +1389,14 @@
 
     <!-- Testimonials Section -->
     <section id="testimonials" style="padding: 6rem 2rem; max-width: 1200px; margin: 0 auto;">
-        <div class="section-header">
+        <div class="section-header animate-on-scroll fade-up">
             <div class="section-label">Testimonials</div>
             <h2 class="section-title">What Clients Say</h2>
             <p class="section-subtitle">Real reviews from real clients across Toronto.</p>
         </div>
 
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
-            <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--accent)'; this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='var(--border)'; this.style.transform='translateY(0)'">
+        <div class="testimonials-grid">
+            <div class="testimonial-card-hover animate-on-scroll fade-up" style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 2rem;">
                 <div style="color: #fbbf24; margin-bottom: 1rem; font-size: 1.1rem;">★★★★★</div>
                 <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.8; margin-bottom: 1.5rem; font-style: italic;">"Doris found deductions I didn't even know existed. Got me an extra $800 back on my return! She's thorough, patient, and explains everything clearly."</p>
                 <div style="display: flex; align-items: center; gap: 1rem;">
@@ -1323,7 +1408,7 @@
                 </div>
             </div>
 
-            <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--accent)'; this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='var(--border)'; this.style.transform='translateY(0)'">
+            <div class="testimonial-card-hover animate-on-scroll fade-up stagger-1" style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 2rem;">
                 <div style="color: #fbbf24; margin-bottom: 1rem; font-size: 1.1rem;">★★★★★</div>
                 <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.8; margin-bottom: 1.5rem; font-style: italic;">"First year filing as self-employed and I was so stressed. Doris made it simple and got me organized for next year too. Worth every penny!"</p>
                 <div style="display: flex; align-items: center; gap: 1rem;">
@@ -1335,7 +1420,7 @@
                 </div>
             </div>
 
-            <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--accent)'; this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='var(--border)'; this.style.transform='translateY(0)'">
+            <div class="testimonial-card-hover animate-on-scroll fade-up stagger-2" style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 2rem;">
                 <div style="color: #fbbf24; margin-bottom: 1rem; font-size: 1.1rem;">★★★★★</div>
                 <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.8; margin-bottom: 1.5rem; font-style: italic;">"I've been coming to Doris for 5 years now. She remembers my situation each year and always finds ways to maximize my refund. Highly recommend!"</p>
                 <div style="display: flex; align-items: center; gap: 1rem;">
@@ -1347,7 +1432,7 @@
                 </div>
             </div>
 
-            <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--accent)'; this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='var(--border)'; this.style.transform='translateY(0)'">
+            <div class="testimonial-card-hover animate-on-scroll fade-up stagger-3" style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 2rem;">
                 <div style="color: #fbbf24; margin-bottom: 1rem; font-size: 1.1rem;">★★★★★</div>
                 <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.8; margin-bottom: 1.5rem; font-style: italic;">"New to Canada and had no idea how taxes work here. Doris walked me through everything and made sure I claimed all the credits available to newcomers."</p>
                 <div style="display: flex; align-items: center; gap: 1rem;">
@@ -1359,7 +1444,7 @@
                 </div>
             </div>
 
-            <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--accent)'; this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='var(--border)'; this.style.transform='translateY(0)'">
+            <div class="testimonial-card-hover animate-on-scroll fade-up stagger-4" style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 2rem;">
                 <div style="color: #fbbf24; margin-bottom: 1rem; font-size: 1.1rem;">★★★★★</div>
                 <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.8; margin-bottom: 1.5rem; font-style: italic;">"Doris amended 3 years of my returns and found over $2,000 in missed deductions. Her attention to detail is incredible. I'll never do my own taxes again!"</p>
                 <div style="display: flex; align-items: center; gap: 1rem;">
@@ -1373,11 +1458,11 @@
         </div>
     </section>
 
-    <section id="contact" class="cta-section animate-on-scroll">
+    <section id="contact" class="cta-section animate-on-scroll fade-scale">
         <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--accent), var(--accent-light)); border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; margin: 0 auto 1.5rem;">
             🧮
         </div>
-        <h2>Ready to Get Your Taxes Done Right?>
+        <h2>Ready to Get Your Taxes Done Right?</h2>
         <p>Book your appointment today. Virtual and in-person appointments available throughout Toronto.</p>
         
         <a href="mailto:doris@kirovtax.ca" class="btn-primary">Book Your Appointment →</a>
@@ -1441,44 +1526,33 @@
     </div>
 
     <script>
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+        // Clean parallax for orbs only
+        const orbs = document.querySelectorAll('.orb');
+        let ticking = false;
+
+        function updateParallax() {
+            const scrollY = window.scrollY;
+            
+            orbs.forEach((orb, index) => {
+                const speeds = [0.2, 0.3, 0.15];
+                const speed = speeds[index] || 0.2;
+                const yPos = scrollY * speed * 0.3;
+                orb.style.transform = `translate3d(0, ${yPos}px, 0)`;
             });
-        });
+            
+            ticking = false;
+        }
 
-        // Scroll Animation Observer
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                requestAnimationFrame(updateParallax);
+                ticking = true;
+            }
+        }, { passive: true });
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    
-                    // Animate counters if this is a stat number
-                    const statNumber = entry.target.querySelector('.stat-number');
-                    if (statNumber && !statNumber.classList.contains('counted')) {
-                        animateCounter(statNumber);
-                        statNumber.classList.add('counted');
-                    }
-                }
-            });
-        }, observerOptions);
+        updateParallax();
 
-        // Observe all animate-on-scroll elements
-        document.querySelectorAll('.animate-on-scroll').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Counter Animation
+        // Stat Counter Animation
         function animateCounter(element) {
             const target = parseInt(element.getAttribute('data-target'));
             const duration = 2000;
@@ -1496,13 +1570,18 @@
             }, 16);
         }
 
-        // Parallax effect for orbs on scroll
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            document.querySelectorAll('.orb').forEach((orb, index) => {
-                const speed = 0.1 + (index * 0.05);
-                orb.style.transform = `translateY(${scrolled * speed}px)`;
+        // Intersection Observer for stat counters
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
+                    animateCounter(entry.target);
+                    entry.target.classList.add('counted');
+                }
             });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.stat-number').forEach(stat => {
+            statsObserver.observe(stat);
         });
 
         // Login Modal Functions
@@ -1572,6 +1651,29 @@
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') closeLogin();
         });
+
+        // Scroll-triggered animation system (eden.so style)
+        const scrollObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            scrollObserver.observe(el);
+        });
+
+        // Navbar scroll transformation
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        }, { passive: true });
     </script>
 </body>
 </html>
